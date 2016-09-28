@@ -30,8 +30,6 @@ public class MainActor extends UntypedActor {
     //  official
     private static final ApiKey API_KEY = new ApiKey("unqlnah7");
 
-    //    local
-//    private static final ApiKey API_KEY = new ApiKey("qupy3kop");
     private LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 
     private final ActorRef initialGameRetriever;
@@ -81,7 +79,6 @@ public class MainActor extends UntypedActor {
     private MainActor() throws InterruptedException {
         initialGameRetriever = context().actorOf(Props.create(InitialGameStateRetriever.class), "initialGameRetriever");
         Thread.sleep(2000L);
-//        initialGameRetriever.tell(new InitialRequest(API_KEY.getKey(), 100, "m4"), self());
         initialGameRetriever.tell(API_KEY, self());
         decisonMaker = context().actorOf(Props.create(DecisonMaker.class));
 

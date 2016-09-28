@@ -68,17 +68,6 @@ public class SuitableMineTracker extends UntypedActor {
         }
     }
 
-    //    refactor this....
-//    private Node getNextMine() {
-//        for (Node node : positionOnBoardStringToMines.values()) {
-//            if (!node.isMyMine()) {
-//                System.out.println(String.format("next mines positions %s:%s", node.getPosition().getX(), node.getPosition().getY()));
-//                return node;
-//            }
-//        }
-//        throw new RuntimeException("coudlnt establish next available mine..");
-//    }
-
     private Integer calculatePositionOnBoardString(int row, int col) {
         return row * board.getSize() * 2 + (col * 2);
     }

@@ -32,9 +32,7 @@ import lombok.Getter;
 
 public class DecisonMaker extends UntypedActor {
 
-    //    private Board board;
     private Map<Position, Node> boardGraph;
-    //    private List<Node> taverns;
     private Hero myHero;
     private Integer heroId;
 
@@ -98,8 +96,6 @@ public class DecisonMaker extends UntypedActor {
 
         while (!searchQueue.isEmpty()) {
             Node current = searchQueue.remove();
-//            visited.add(current);
-
             Optional<BotMove> isNextToGoal = current.isNeighbourWith(target.getPosition());
             if (!isNextToGoal.isPresent()) {
                 List<Node> childrenToBeVisited = current.emptyNeighbourListExcludingVisited(visited);
@@ -133,15 +129,10 @@ public class DecisonMaker extends UntypedActor {
                 break;
             }
         }
-        reversedPath = new LinkedList<>(newArrayList(reversedPath.descendingIterator()));
-//        return new LinkedList<>(newArrayList(reversedPath.iterator()));
-//        List<BotMove> temp = newArrayList(reversedPath.descendingIterator());
-//        return temp;
-        return reversedPath;
+        return new LinkedList<>(newArrayList(reversedPath.descendingIterator()));
     }
 
     private void generateBoardGraph(String board, Integer boardSize) {
-//        taverns = new ArrayList<>();
         Map<Position, Node> boardMap = new HashMap<>();
         int boardSizeInChar = boardSize * 2;
         for (int row = 0; row < boardSize; row++) {
@@ -158,7 +149,6 @@ public class DecisonMaker extends UntypedActor {
                     } else if (tile.equals("[]")) {
                         Node tavern = new Node(position, TAVERN);
                         boardMap.put(position, tavern);
-//                        taverns.add(tavern);
                     } else {
                         boardMap.put(position, new Node(position, EMPTY));
                     }
