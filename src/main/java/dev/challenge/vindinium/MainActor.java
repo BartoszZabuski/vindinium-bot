@@ -28,7 +28,7 @@ import scala.concurrent.duration.FiniteDuration;
 
 public class MainActor extends UntypedActor {
     //  official
-    private static final ApiKey API_KEY = new ApiKey("unqlnah7");
+    private static final ApiKey API_KEY = new ApiKey("qf62v21k");
 
     private LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 

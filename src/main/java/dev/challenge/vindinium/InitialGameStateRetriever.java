@@ -13,8 +13,8 @@ import dev.challenge.vindinium.domain.messages.InitialRequest;
 import dev.challenge.vindinium.infrastructure.messages.ApiKey;
 
 public class InitialGameStateRetriever extends UntypedProducerActor {
-//            private final static String TRAINING_URL = "http://vindinium.org/api/training";
-        private final static String COMPETITION_URL = "http://vindinium.org/api/arena";
+    //            private final static String TRAINING_URL = "http://vindinium.org/api/training";
+    private final static String COMPETITION_URL = "http://138.68.144.107/api/arena";
 
     private final Gson gson = new Gson();
 
@@ -33,7 +33,7 @@ public class InitialGameStateRetriever extends UntypedProducerActor {
 
     @Override
     public String getEndpointUri() {
-        return  COMPETITION_URL;
+        return COMPETITION_URL;
     }
 
     @Override
